@@ -49,4 +49,10 @@ Route::group(['middleware' => 'auth'], function(){
         Route::patch('/employe/{id}', 'update')->name('employe.update');
         Route::get('/employe/delete/{id}', 'destroy')->name('employe.delete');
     });
+
+    // Attendance
+    Route::controller('App\Http\Controllers\AttendanceController')->group(function(){
+        Route::get('/attendance', 'index')->name('attendance');
+        Route::get('/attendance/detail/{id}', 'show')->name('attendance.detail');
+    });
 });

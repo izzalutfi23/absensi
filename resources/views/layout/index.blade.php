@@ -95,7 +95,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="ai-icon" aria-expanded="false">
+                        <a href="{{ route('attendance') }}" class="ai-icon {{ Request::segment(1) == 'attendance' ? 'mm-active' : '' }}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-calendar-6"></i>
                             <span class="nav-text">Absensi</span>
                         </a>
