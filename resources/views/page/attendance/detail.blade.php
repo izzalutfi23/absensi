@@ -14,6 +14,7 @@
 </div>
 
 <!-- row -->
+@if(!$attendance)
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -38,11 +39,10 @@
                                 </td>
                                 <td>{{ date('d M Y') }}</td>
                                 <td>
-                                    {{-- <button class="btn btn-success btn-sm"><span class="fa fa-check" style="color: #FFF;"></span></button> --}}
-                                    <button class="btn btn-success btn-sm">Masuk</button>
+                                    <a onclick="return confirm('Absen masuk?')" href="{{ route('attendance.action', [$employe->id, 'in']) }}" class="btn btn-success btn-sm">Masuk</a>
                                 </td>
                                 <td>
-                                    <button class="btn btn-danger btn-sm">Keluar</button>
+                                    <button class="btn btn-danger btn-sm"><span class="fa fa-close" style="color: #FFF;"></span></button>
                                 </td>
                             </tr>
                         </tbody>
@@ -52,6 +52,55 @@
         </div>
     </div>
 </div>
+@else
+    @if($attendance->in == null || $attendance->out == null)
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Absen Harian</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-responsive-md">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Tanggal</th>
+                                    <th>Masuk</th>
+                                    <th>Keluar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm"><span class="fa fa-exclamation" style="color: #FFF;"></span></button>
+                                    </td>
+                                    <td>{{ date('d M Y') }}</td>
+                                    <td>
+                                        @if($attendance->in)
+                                            <button class="btn btn-success btn-sm"><span class="fa fa-check" style="color: #FFF;"></span></button>
+                                        @else
+                                            <a onclick="return confirm('Absen masuk?')" href="{{ route('attendance.action', [$employe->id, 'in']) }}" class="btn btn-success btn-sm">Masuk</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($attendance->in)
+                                            <a onclick="return confirm('Absen keluar?')" href="{{ route('attendance.action', [$employe->id, 'out']) }}" class="btn btn-success btn-sm">Keluar</a>
+                                        @else
+                                            <button class="btn btn-danger btn-sm"><span class="fa fa-close" style="color: #FFF;"></span></button>
+                                        @endif
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+@endif
 
 <!-- row -->
 <div class="row">

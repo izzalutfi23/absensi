@@ -54,5 +54,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::controller('App\Http\Controllers\AttendanceController')->group(function(){
         Route::get('/attendance', 'index')->name('attendance');
         Route::get('/attendance/detail/{id}', 'show')->name('attendance.detail');
+        Route::get('/attendance/action/{employ_id}/{status}', 'action')->name('attendance.action');
     });
 });
