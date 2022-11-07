@@ -163,12 +163,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($attendances as $row)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ date('d M Y', strtotime($row->date)) }}</td>
+                                <td>{{ $row->in }}</td>
+                                <td>{{ $row->out }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                         <tfoot>
                             <tr>

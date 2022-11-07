@@ -18,9 +18,8 @@ class AttendanceController extends Controller
         $employe = Employe::whereId($id)->first();
         $attendance = Attendance::whereDate('date', Carbon::today())->where('employe_id', $employe->id)->first();
         $attendances = Attendance::whereMonth('created_at', Carbon::now())->where('employe_id', $employe->id)->get();
-        return $attendances;
         $month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-        return view('page.attendance.detail', compact('employe', 'month', 'attendance'));
+        return view('page.attendance.detail', compact('employe', 'month', 'attendance', 'attendances'));
     }
 
     public function action($employe_id, $status){
