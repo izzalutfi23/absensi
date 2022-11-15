@@ -18,7 +18,7 @@ class AttendanceController extends Controller
     public function show($id){
         $employe = Employe::whereId($id)->first();
         $attendance = Attendance::whereDate('date', Carbon::today())->where('employe_id', $employe->id)->first();
-        $attendances = Attendance::whereMonth('created_at', Carbon::now())->where('employe_id', $employe->id)->get();
+        $attendances = Attendance::whereMonth('date', Carbon::now())->where('employe_id', $employe->id)->get();
         $month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
         $data = [];
@@ -33,6 +33,14 @@ class AttendanceController extends Controller
             $date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
         }
 
+        $count = [
+            'h' => $attendances->where('status', 'H')->count(),
+            'i' => $attendances->where('status', 'I')->count(),
+            's' => $attendances->where('status', 'S')->count(),
+            'c' => $attendances->where('status', 'C')->count(),
+            'total' => count($data)
+        ];
+
         foreach($attendances as $a){
             if($a->status == 'I'){
                 $a->desc = 'Ijin';
@@ -47,13 +55,13 @@ class AttendanceController extends Controller
                 $a->desc = "";
             }
         }
-        return view('page.attendance.detail', compact('employe', 'month', 'attendance', 'attendances', 'data', 'year', 'month1'));
+        return view('page.attendance.detail', compact('employe', 'month', 'attendance', 'attendances', 'data', 'year', 'month1', 'count'));
     }
 
     public function filter(Request $request, $id){
         $employe = Employe::whereId($id)->first();
         $attendance = Attendance::whereDate('date', Carbon::today())->where('employe_id', $employe->id)->first();
-        $attendances = Attendance::whereMonth('created_at', Carbon::now())->where('employe_id', $employe->id)->get();
+        $attendances = Attendance::whereMonth('date', $request->month)->where('employe_id', $employe->id)->get();
         $month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
         $data = [];
@@ -68,6 +76,14 @@ class AttendanceController extends Controller
             $date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
         }
 
+        $count = [
+            'h' => $attendances->where('status', 'H')->count(),
+            'i' => $attendances->where('status', 'I')->count(),
+            's' => $attendances->where('status', 'S')->count(),
+            'c' => $attendances->where('status', 'C')->count(),
+            'total' => count($data)
+        ];
+
         foreach($attendances as $a){
             if($a->status == 'I'){
                 $a->desc = 'Ijin';
@@ -82,7 +98,7 @@ class AttendanceController extends Controller
                 $a->desc = "";
             }
         }
-        return view('page.attendance.detail', compact('employe', 'month', 'attendance', 'attendances', 'data', 'year', 'month1'));
+        return view('page.attendance.detail', compact('employe', 'month', 'attendance', 'attendances', 'data', 'year', 'month1', 'count'));
     }
 
     public function action($employe_id, $status){
@@ -106,6 +122,13 @@ class AttendanceController extends Controller
         }
 
         Alert::success('Berhasil melakukan absensi!');
+        return redirect()->back();
+    }
+
+    public function destroy($id){
+        Attendance::whereId($id)->delete();
+
+        Alert::success('Data berhasil dihapus!');
         return redirect()->back();
     }
 }

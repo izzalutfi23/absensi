@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('form');
+Route::controller('App\Http\Controllers\FormController')->group(function(){
+    Route::get('/', 'index')->name('form');
+    Route::post('/add', 'store')->name('form.store');
 });
 
 Route::controller('App\Http\Controllers\AuthController')->group(function(){
@@ -56,5 +57,6 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/attendance/detail/{id}', 'show')->name('attendance.detail');
         Route::patch('/attendance/filter/{id}', 'filter')->name('attendance.filter');
         Route::get('/attendance/action/{employ_id}/{status}', 'action')->name('attendance.action');
+        Route::get('/attendance/delete/{id}', 'destroy')->name('attendance.delete');
     });
 });

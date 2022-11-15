@@ -151,7 +151,7 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-9 col-xxl-8">
+    <div class="col-xl-12 col-xxl-12">
         <div class="row">
             <div class="col-xl-12">	
                 <div class="card">
@@ -229,90 +229,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-12">	
-                <div class="card">
-                    <div class="card-header d-sm-flex d-block pb-0 border-0">
-                        <div class="mr-auto pr-3">
-                            <h4 class="text-black fs-20 font-w600">Calories Chart</h4>
-                            <p class="fs-13 mb-0 text-black">Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="dropdown mt-sm-0 mt-3">
-                            <button type="button" class="btn rounded btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                Weekly
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="javascript:void(0);">Link 1</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Link 2</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Link 3</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div id="chartTimeline"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-xxl-4">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card featuredMenu">
-                    <div class="card-header border-0">
-                        <h4 class="text-black font-w600 fs-20 mb-0">Featured Diet Menu</h4>
-                    </div>
-                    <div class="card-body loadmore-content height750 dz-scroll pt-0" id="FeaturedMenusContent">
-                        <div class="media mb-4">
-                            <img src="images/menus/1.png" width="85" alt="" class="rounded mr-3">
-                            <div class="media-body">
-                                <h5><a href="food-menu.html" class="text-black fs-16">Chinese Orange Fruit With Avocado Salad</a></h5>
-                                <span class="fs-14 text-primary font-w500">Kevin Ignis</span>
-                            </div>
-                        </div>
-                        <ul class="d-flex flex-wrap pb-2 border-bottom mb-3 justify-content-between">
-                            <li class="mr-3 mb-2"><i class="las la-clock scale5 mr-3"></i><span class="fs-14 text-black">4-6 mins </span></li>
-                            <li class="mb-2"><i class="fa fa-star-o mr-3 scale5 text-warning" aria-hidden="true"></i><span class="fs-14 text-black font-w500">176 Reviews</span></li>
-                        </ul>
-                        <div class="media mb-4">
-                            <img src="images/menus/2.png" width="85" alt="" class="rounded mr-3">
-                            <div class="media-body">
-                                <h5><a href="food-menu.html" class="text-black fs-16">Fresh or Frozen (No Sugar Added) Fruits</a></h5>
-                                <span class="fs-14 text-primary font-w500">Olivia Johanson</span>
-                            </div>
-                        </div>
-                        <ul class="d-flex flex-wrap pb-2 border-bottom mb-3 justify-content-between">
-                            <li class="mr-3 mb-2"><i class="las la-clock scale5 mr-3"></i><span class="fs-14 text-black">4-6 mins </span></li>
-                            <li class="mb-2"><i class="fa fa-star-o mr-3 scale5 text-warning" aria-hidden="true"></i><span class="fs-14 text-black font-w500">176 Reviews</span></li>
-                        </ul>
-                        <div class="media mb-4">
-                            <img src="images/menus/3.png" width="85" alt="" class="rounded mr-3">
-                            <div class="media-body">
-                                <h5><a href="food-menu.html" class="text-black fs-16">Fresh or Frozen (No Sugar Added) Fruits</a></h5>
-                                <span class="fs-14 text-primary font-w500">Stefanny Raharjo</span>
-                            </div>
-                        </div>
-                        <ul class="d-flex flex-wrap pb-2 border-bottom mb-3 justify-content-between">
-                            <li class="mr-3 mb-2"><i class="las la-clock scale5 mr-3"></i><span class="fs-14 text-black">4-6 mins </span></li>
-                            <li class="mb-2"><i class="fa fa-star-o mr-3 scale5 text-warning" aria-hidden="true"></i><span class="fs-14 text-black font-w500">176 Reviews</span></li>
-                        </ul>
-                        <div class="media mb-4">
-                            <img src="images/menus/4.png" width="85" alt="" class="rounded mr-3">
-                            <div class="media-body">
-                                <h5><a href="food-menu.html" class="text-black fs-16">Original Boiled Egg with Himalaya Salt</a></h5>
-                                <span class="fs-14 text-primary font-w500">Peter Parkur</span>
-                            </div>
-                        </div>
-                        <ul class="d-flex flex-wrap pb-2 border-bottom mb-3 justify-content-between">
-                            <li class="mr-3 mb-2"><i class="las la-clock scale5 mr-3"></i><span class="fs-14 text-black">4-6 mins </span></li>
-                            <li class="mb-2"><i class="fa fa-star-o mr-3 scale5 text-warning" aria-hidden="true"></i><span class="fs-14 text-black font-w500">176 Reviews</span></li>
-                        </ul>
-                    </div>
-                    <div class="card-footer style-1 text-center border-0 pt-0 pb-4">
-                        <a class="text-primary dz-load-more fa fa-chevron-down" id="FeaturedMenus" href="javascript:void(0);" rel="ajax/featured-menu-list.html">
-                        </a>
                     </div>
                 </div>
             </div>

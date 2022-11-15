@@ -53,7 +53,7 @@
     </div>
 </div>
 @else
-    @if($attendance->in == null || $attendance->out == null && Request::segment(2) == 'detail')
+    @if($attendance->in == null || $attendance->out == null && Request::segment(2) == 'detail' && $attendance->status == 'H')
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -119,6 +119,11 @@
                             <td>:</td>
                             <td>{{ $employe->division->name }}</td>
                         </tr>
+                        <tr>
+                            <td>Rekap</td>
+                            <td>:</td>
+                            <td>(H:{{ $count['h'] }} I:{{ $count['i'] }} S:{{ $count['s'] }} C:{{ $count['c'] }} T:{{ $count['total'] - ($count['h']+$count['i']+$count['s']+$count['c']) }})</td>
+                        </tr>
                     </table>
                 </div>
                 <div class="col-lg-6">
@@ -162,6 +167,7 @@
                                 <th>Tanggal</th>
                                 <th>Jam Masuk</th>
                                 <th>Jam Keluar</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         {{-- <tbody>
@@ -190,6 +196,11 @@
                                             <td>{{ date('d M Y', strtotime($date)) }}</td>
                                             <td>{{ $row->in }}</td>
                                             <td>{{ $row->out == null ? 'Tidak Hadir' : $row->out }}</td>
+                                            <td>
+                                                <a onclick="return confirm('Data akan dihapus!')" href="{{ route('attendance.delete', $row->id) }}" class="btn btn-danger btn-sm">
+                                                    <span class="fa fa-trash"></span>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @else
                                         <tr style="background-color: rgb(0,255,0)">
@@ -197,7 +208,39 @@
                                             <td style="color: #FFF;">{{ date('d M Y', strtotime($date)) }}</td>
                                             <td style="color: #FFF;">{{ $row->desc }}</td>
                                             <td style="color: #FFF;">{{ $row->desc }}</td>
+                                            <td>
+                                                <a onclick="return confirm('Data akan dihapus!')" href="{{ route('attendance.delete', $row->id) }}" class="btn btn-danger btn-sm">
+                                                    <span class="fa fa-trash"></span>
+                                                </a>
+                                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#basicModal{{ $row->id }}">
+                                                    <span class="fa fa-eye"></span>
+                                                </button>
+                                            </td>
                                         </tr>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="basicModal{{ $row->id }}">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Alasan Tidak Hadir</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form action="#" method="POST">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <label for="out">Keterangan</label>
+                                                                <textarea name="address" class="form-control" required="required" rows="7">{{ $row->value }}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endif
                                     @php
                                         $no+=1;
@@ -211,6 +254,7 @@
                                         <td style="color: #FFF;">{{ date('d M Y', strtotime($date)) }}</td>
                                         <td style="color: #FFF;">Tidak Hadir</td>
                                         <td style="color: #FFF;">Tidak Hadir</td>
+                                        <td></td>
                                     </tr>
                                     @php
                                         $no+=1;
