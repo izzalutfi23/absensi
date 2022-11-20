@@ -101,7 +101,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="ai-icon" aria-expanded="false">
+                        <a href="{{ route('logout') }}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-exit-2"></i>
                             <span class="nav-text">Keluar</span>
                         </a>
