@@ -43,7 +43,7 @@ class FormController extends Controller
             }
         }
 
-        Alert::success('Data berhasil dikirim!!!');
+        Alert::success('Success', 'Data berhasil dikirim!!!');
         return redirect()->back();
     }
 }

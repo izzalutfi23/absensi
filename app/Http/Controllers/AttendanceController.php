@@ -121,14 +121,14 @@ class AttendanceController extends Controller
             ]);
         }
 
-        Alert::success('Berhasil melakukan absensi!');
+        Alert::success('Success', 'Berhasil melakukan absensi!');
         return redirect()->back();
     }
 
     public function destroy($id){
         Attendance::whereId($id)->delete();
 
-        Alert::success('Data berhasil dihapus!');
+        Alert::success('Success', 'Data berhasil dihapus!');
         return redirect()->back();
     }
 }

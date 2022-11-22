@@ -23,7 +23,7 @@ class EmployeController extends Controller
             'address' => $request->address
         ]);
 
-        Alert::success('Data karyawan berhasil disimpan!');
+        Alert::success('success', 'Data karyawan berhasil disimpan!');
         return redirect()->back();
     }
 
@@ -36,7 +36,7 @@ class EmployeController extends Controller
             'address' => $request->address
         ]);
 
-        Alert::success('Data karyawan berhasil diubah!');
+        Alert::success('success', 'Data karyawan berhasil diubah!');
         return redirect()->back();
     }
 

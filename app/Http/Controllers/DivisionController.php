@@ -18,14 +18,14 @@ class DivisionController extends Controller
             'name' => $request->name
         ]);
 
-        Alert::success('Divisi berhasil ditambahkan!');
+        Alert::success('success', 'Divisi berhasil ditambahkan!');
         return redirect()->back();
     }
 
     public function destroy($id){
         Division::whereId($id)->delete();
 
-        Alert::success('Divisi berhasil dihapus!');
+        Alert::success('success', 'Divisi berhasil dihapus!');
         return redirect()->back();
     }
 }

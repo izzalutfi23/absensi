@@ -24,7 +24,7 @@ class WorkingHourController extends Controller
             'rule' => json_encode($rule)
         ]);
 
-        Alert::success('Jam kerja berhasil diperbarui');
+        Alert::success('Success', 'Jam kerja berhasil diperbarui');
         return redirect()->back();
     }
 }
