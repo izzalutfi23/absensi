@@ -233,6 +233,10 @@
                                                                 <label for="out">Keterangan</label>
                                                                 <textarea name="address" class="form-control" required="required" rows="7">{{ $row->value }}</textarea>
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="out">Gambar</label>
+                                                                <img src="{{ Storage::url('bukti/'.$row->image) }}" class="img-fluid">
+                                                            </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
