@@ -28,7 +28,7 @@
 									<div id="form-message-success" class="mb-4">
 										Your message was sent, thank you!
 									</div>
-									<form method="POST" action="{{ route('form.store') }}" name="form1">
+									<form method="POST" action="{{ route('form.store') }}" name="form1" enctype="multipart/form-data">
 										@csrf
 										<div class="row">
 											<div class="col-md-6">
@@ -48,18 +48,18 @@
 													<input type="date" required="required" class="form-control" name="date">
 												</div>
 											</div>
-											<div class="col-md-3">
+											{{-- <div class="col-md-3">
 												<div class="form-group">
 													<div class="form-check form-check-inline">
 														<input class="form-check-input" checked="checked" type="radio" name="status" id="inlineRadio2" value="H">
 														<label class="form-check-label" for="inlineRadio2">Hadir</label>
 													</div>
 												</div>
-											</div>
+											</div> --}}
 											<div class="col-md-3">
 												<div class="form-group">
 													<div class="form-check form-check-inline">
-														<input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="I">
+														<input class="form-check-input" checked="checked" type="radio" name="status" id="inlineRadio2" value="I">
 														<label class="form-check-label" for="inlineRadio2">Ijin</label>
 													</div>
 												</div>
@@ -80,13 +80,19 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-md-12" id="type">
+											{{-- <div class="col-md-12" id="type">
 												<div class="form-group">
 													<label for="exampleInputEmail1">Masuk/Keluar</label>
 													<select name="type" class="form-control">
 														<option value="in">Masuk</option>
 														<option value="out">Keluar</option>
 													</select>
+												</div>
+											</div> --}}
+											<div class="col-md-12">
+												<div class="form-group">
+													<label for="exampleInputEmail1">Gambar</label>
+													<input type="file" name="gambar" class="form-control" required>
 												</div>
 											</div>
 											<div class="col-md-12">

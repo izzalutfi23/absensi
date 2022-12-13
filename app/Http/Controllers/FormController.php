@@ -15,7 +15,8 @@ class FormController extends Controller
 
     public function store(Request $request){
         $check = Attendance::where('employe_id', $request->employe_id)->whereDate('date', $request->date)->first();
-
+        $image = $request->file('gambar');
+        $image->storeAs('public/bukti', $image->hashName());
         if($check){
             Attendance::whereId($check->id)->update([
                 'status' => $request->status,
@@ -30,6 +31,7 @@ class FormController extends Controller
                     'date' => $request->date,
                     'status' => 'H',
                     'in' => $request->type == 'in' ? date('H:i:s') : null,
+                    'image' => $image->hashName()
                     // 'out' => $request->type == 'out' ? date('H:i:s') : null
                 ]);
             }
@@ -38,7 +40,8 @@ class FormController extends Controller
                     'employe_id' => $request->employe_id,
                     'date' => $request->date,
                     'status' => $request->status,
-                    'value' => $request->value
+                    'value' => $request->value,
+                    'image' => $image->hashName()
                 ]);
             }
         }
