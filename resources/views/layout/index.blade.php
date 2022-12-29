@@ -101,6 +101,18 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('cuti') }}" class="ai-icon {{ Request::segment(1) == 'cuti' ? 'mm-active' : '' }}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-notepad"></i>
+                            <span class="nav-text">Cuti</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('user') }}" class="ai-icon {{ Request::segment(1) == 'user' ? 'mm-active' : '' }}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user"></i>
+                            <span class="nav-text">User</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('logout') }}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-exit-2"></i>
                             <span class="nav-text">Keluar</span>

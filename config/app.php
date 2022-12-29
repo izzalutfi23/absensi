@@ -179,6 +179,8 @@ return [
         // Sweet Alert
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
+        // PDF
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -236,6 +238,7 @@ return [
 
         // Sweet Alert
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

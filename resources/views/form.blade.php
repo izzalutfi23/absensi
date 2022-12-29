@@ -48,18 +48,18 @@
 													<input type="date" required="required" class="form-control" name="date">
 												</div>
 											</div>
-											{{-- <div class="col-md-3">
+											<div class="col-md-3">
 												<div class="form-group">
 													<div class="form-check form-check-inline">
 														<input class="form-check-input" checked="checked" type="radio" name="status" id="inlineRadio2" value="H">
 														<label class="form-check-label" for="inlineRadio2">Hadir</label>
 													</div>
 												</div>
-											</div> --}}
+											</div>
 											<div class="col-md-3">
 												<div class="form-group">
 													<div class="form-check form-check-inline">
-														<input class="form-check-input" checked="checked" type="radio" name="status" id="inlineRadio2" value="I">
+														<input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="I">
 														<label class="form-check-label" for="inlineRadio2">Ijin</label>
 													</div>
 												</div>
@@ -80,7 +80,7 @@
 													</div>
 												</div>
 											</div>
-											{{-- <div class="col-md-12" id="type">
+											<div class="col-md-12" id="type">
 												<div class="form-group">
 													<label for="exampleInputEmail1">Masuk/Keluar</label>
 													<select name="type" class="form-control">
@@ -88,7 +88,7 @@
 														<option value="out">Keluar</option>
 													</select>
 												</div>
-											</div> --}}
+											</div>
 											<div class="col-md-12">
 												<div class="form-group">
 													<label for="exampleInputEmail1">Gambar</label>

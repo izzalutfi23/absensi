@@ -58,5 +58,22 @@ Route::group(['middleware' => 'auth'], function(){
         Route::patch('/attendance/filter/{id}', 'filter')->name('attendance.filter');
         Route::get('/attendance/action/{employ_id}/{status}', 'action')->name('attendance.action');
         Route::get('/attendance/delete/{id}', 'destroy')->name('attendance.delete');
+        Route::post('/attendance/pdf', 'pdf')->name('attendance.pdf');
+    });
+
+    // User
+    Route::controller('App\Http\Controllers\UserController')->group(function(){
+        Route::get('/user', 'index')->name('user');
+        Route::post('/user', 'store')->name('user.store');
+        Route::get('/user/delete/{id}', 'destroy')->name('user.delete');
+    });
+
+    // Cuti
+    Route::controller('App\Http\Controllers\CutiController')->group(function(){
+        Route::get('/cuti', 'index')->name('cuti');
+        Route::post('/cuti', 'store')->name('cuti.store');
+        Route::get('/cuti/delete/{id}', 'destroy')->name('cuti.delete');
+        Route::get('/cuti/approve/{id}', 'approve')->name('cuti.approve');
+        Route::get('/cuti/pdf/{id}', 'pdf')->name('cuti.pdf');
     });
 });

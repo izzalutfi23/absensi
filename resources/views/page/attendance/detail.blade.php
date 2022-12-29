@@ -149,7 +149,7 @@
                                 </select>
                             </div>
                             <div class="col-sm-4 mt-2 mt-sm-0">
-                                <button class="btn btn-primary pull-right">Tampilkan</button>
+                                <button class="btn btn-primary pull-right" type="submit">Tampilkan</button>
                             </div>
                         </div>
                     </form>
@@ -170,16 +170,6 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
-                            @foreach($attendances as $row)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ date('d M Y', strtotime($row->date)) }}</td>
-                                <td>{{ $row->in }}</td>
-                                <td>{{ $row->out }}</td>
-                            </tr>
-                            @endforeach
-                        </tbody> --}}
                         <tbody>
                             @php
                                 $no = 1;
