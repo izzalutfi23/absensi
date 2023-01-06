@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\{Attendance, Employe};
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     public function index(){
-        $m = date('m');
-        $attendance = DB::select("SELECT count(id) AS amount, status FROM attendances WHERE MONTH(date) = '$m' GROUP BY status");
+        $m = date('Y-m-d');
+        $attendance = DB::select("SELECT count(id) AS amount, status FROM attendances WHERE date = '$m' GROUP BY status");
         $h = 0;
         $i = 0;
         $s = 0;
